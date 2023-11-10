@@ -31,5 +31,5 @@ Route::get('/logout', [SessionsController::class, 'destroy'])
 
 
 Route::get('/admin', [AdminController::class, 'index'])
-    ->middleware('auth.admin')
+    ->middleware('auth')
     ->name('admin.index');
