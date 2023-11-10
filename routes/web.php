@@ -37,3 +37,4 @@ Route::get('/admin', [AdminController::class, 'index'])
 
 //agregado
 Route::resource('formacion', FormacionController::class);
+Route::resource('trabajo', TrabajoController::class);
