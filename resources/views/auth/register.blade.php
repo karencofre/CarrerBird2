@@ -66,15 +66,13 @@ rounded-lg shadow-lg">
     id="phone" name="phone">
 
     
-    <label  for="admin">Admin</label>
+    <label  for="admin">Chek if you are an Admin</label>
+
     <input type="radio" class="border border-gray-200 rounded-md bg-gray-200 w-full
     text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Admin"
-    id="admin" name="role" value="admin"  onclick="showInput()">
+    id="admin" name="role" value="role"  onclick="showInput()">
 
-    <label for="usuario">Usuario</label>
-    <input type="radio" class="border border-gray-200 rounded-md bg-gray-200 w-full
-    text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Usuario" id="usuario" name="role" value="usuario"
-    onclick="hideInput()" >
+   
 
     <div id="adminInput" style="display: none;">
             <input type="text" class="border border-gray-200 rounded-md bg-gray-200 w-full

@@ -12,16 +12,28 @@ class RegisterController extends Controller {
         return view('auth.register');
     }
 
-    public function store() {
+    public function store(Request $request) {
 
         $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|confirmed',
+            // agregado
+            'street' => 'required',
+            'city' => 'required',
+            'country' => 'required',
+            'phone' => 'required',
         ]);
 
-        $user = User::create(request(['name', 'email', 'password']));
 
+        if($request->has('role')){
+            $user = User::create(request(['name', 'email', 'password','street','city','country','phone','role','organization']));
+
+        }else{
+            $user = User::create(request(['name', 'email', 'password','street','city','country','phone','role']));
+
+        }
+        
         auth()->login($user);
         return redirect()->to('/');
     }
