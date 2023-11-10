@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FormacionController; //agregado
 
 Route::get('/', function () {
     return view('home');
@@ -33,3 +34,6 @@ Route::get('/logout', [SessionsController::class, 'destroy'])
 Route::get('/admin', [AdminController::class, 'index'])
     ->middleware('auth')
     ->name('admin.index');
+
+//agregado
+Route::resource('formacion', FormacionController::class);
