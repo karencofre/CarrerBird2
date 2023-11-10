@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormacionController; //agregado
+use App\Http\Controllers\TrabajoController; //agregado
 
 Route::get('/', function () {
     return view('home');

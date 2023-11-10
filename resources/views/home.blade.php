@@ -49,13 +49,13 @@
         <div class="container">
             <div class="row">
                 <button type="submit" class="btn btn-primary col-md-12 my-2">Guardar Trabajo</button>
-                 </div>
+            </div>
         </div>
     </form>
 
     <h2 class="text-5xl text-center pt-24">Habilidad</h2>
 
 
-  <h2 class="text-5xl text-center pt-24">Empleos</h2>
+    <h2 class="text-5xl text-center pt-24">Empleos</h2>
 </div>
 @endsection
