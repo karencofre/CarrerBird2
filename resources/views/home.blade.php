@@ -55,6 +55,22 @@
 
     <h2 class="text-5xl text-center pt-24">Habilidad</h2>
 
+    <form action="{{route('habilidad.store')}}" method="POST">
+        @csrf
+        
+        <div class="mb-3">
+
+            <label for="nombre_habilidad" class="form-label">Nombre Habilidad</label>
+            <input type="text" class="form-control" id="nombre_habilidad" name="habilidad">
+           
+
+        </div>
+        <div class="container">
+            <div class="row">
+                <button type="submit" class="btn btn-primary col-md-12 my-2">Guardar Habilidad</button>
+            </div>
+        </div>
+    </form>
 
     <h2 class="text-5xl text-center pt-24">Empleos</h2>
 </div>

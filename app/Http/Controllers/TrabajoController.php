@@ -21,8 +21,8 @@ class TrabajoController extends Controller
     }
 
     public function index(){
-        $trabajadores = Trabajo::all();
-        return view('home', ['trabajadores',$trabajadores]);
+        $trabajo = Trabajo::all();
+        return view('home', ['trabajo',$trabajo]);
     }
 
     public function show(string $id){
