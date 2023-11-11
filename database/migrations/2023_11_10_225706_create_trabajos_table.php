@@ -21,7 +21,7 @@ class CreateTrabajosTable extends Migration
             $table->string('cargo_trabajo')->nullable();
             $table->unsignedBigInteger('trabajador')->nullable();
 
-            $table->foreign('trabajador')->references('id')->on('users');
+            $table->foreign('trabajador')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 

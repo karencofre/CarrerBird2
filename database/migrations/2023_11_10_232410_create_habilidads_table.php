@@ -20,7 +20,7 @@ class CreateHabilidadsTable extends Migration
 
             $table->unsignedBigInteger('trabajador')->nullable();
 
-            $table->foreign('trabajador')->references('id')->on('users');
+            $table->foreign('trabajador')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 

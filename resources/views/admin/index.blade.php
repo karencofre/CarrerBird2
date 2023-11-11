@@ -29,7 +29,7 @@
 
     <!--listado de empleos-->
     <div class="container mt-5">
-        <h2 class="text-center">Lista de Empleos</h2>
+        <h2 class="text-center my-2">Lista de Empleos</h2>
 
         <table class="table">
             <thead>
@@ -51,8 +51,16 @@
                     <td>{{ $empleo->descripcion }}</td>
                     <td>{{ $empleo->renta }}</td>
                     <td>
-                        <a href="{{ route('empleo.update', ['empleo' => $empleo->id]) }}" class="btn btn-primary">Editar</a>
-<a href="{{ route('empleo.destroy', ['empleo' => $empleo->id]) }}" class="btn btn-danger">Eliminar</a>
+                        <a href="{{ route('empleo.update', $empleo->id) }}">
+                            <button class="form-group btn btn-primary" type="submit">Editar</button>
+                        </a>
+                         <a onclick="confirm('¿Está seguro que desea eliminar el empleo?')">
+                        <form action="{{ route('empleo.destroy', $empleo->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="form-group btn btn-danger" type="submit">Eliminar</button>
+                        </form>
+                    </a>
 
                       </td>
                 </tr>

@@ -21,7 +21,7 @@ class CreateFormacionsTable extends Migration
             $table->string('grado_formacion')->nullable();
             $table->unsignedBigInteger('trabajador')->nullable();
 
-            $table->foreign('trabajador')->references('id')->on('users');
+            $table->foreign('trabajador')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Formacion;
+use App\Models\Trabajo;
+use App\Models\Habilidad;
+use App\Models\Empleo;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -57,5 +62,20 @@ class User extends Authenticatable
     public function setPasswordAttribute($password) {
 
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function formaciones(){
+        return $this->hasMany(Formacion::class);
+    }
+
+    public function trabajos(){
+        return $this->hasMany(Trabajo::class);
+    }
+
+    public function habilidads(){
+        return $this->hasMany(Habilidad::class);
+    }
+    public function empleos(){
+        return $this->hasMany(Empleo::class);
     }
 }

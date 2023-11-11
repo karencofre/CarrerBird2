@@ -21,7 +21,7 @@ class CreateEmpleosTable extends Migration
             $table->integer('renta')->nullable();
             $table->string('requisito')->nullable();
             $table->unsignedBigInteger('trabajador')->nullable();
-            $table->foreign('trabajador')->references('id')->on('users');
+            $table->foreign('trabajador')->references('id')->on('users')->onDelete('cascade');;
          });
     }
 
