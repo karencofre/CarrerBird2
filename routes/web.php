@@ -8,6 +8,7 @@ use App\Http\Controllers\FormacionController; //agregado
 use App\Http\Controllers\TrabajoController; //agregado
 use App\Http\Controllers\HabilidadController; //agregado
 use App\Http\Controllers\EmpleoController; //agregado
+use App\Http\Controllers\ListadoController; //agregado
 
 Route::get('/', function () {
     return view('home');
@@ -46,3 +47,7 @@ Route::resource('empleo', EmpleoController::class);
 Route::post('/empleo/{id}', [EmpleoController::class,'destroy'])->name('empleo.destroy')->middleware('auth');
 Route::get('empleo/editar/{id}', [EmpleoController::class,'updateEmpleo'])->name('empleo.updateEmpleo')->middleware('auth');
 Route::post('empleo/editar/{id}', [EmpleoController::class,'update'])->name('empleo.update')->middleware('auth');
+// agregado 2
+
+Route::resource('listado', ListadoController::class);
+Route::post('listado/{id}', [ListadoController::class,'store'])->name('listado.store');

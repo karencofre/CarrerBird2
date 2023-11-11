@@ -73,5 +73,40 @@
     </form>
 
     <h2 class="text-5xl text-center pt-24">Empleos</h2>
+
+    <div class="container mt-5">
+        <h2 class="text-center my-2">Lista de Empleos</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cargo</th>
+                    <th>Descripción</th>
+                    <th>Renta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              @php
+              use App\Models\Empleo;
+              $empleos = Empleo::all();
+              @endphp
+                @foreach ($empleos as $empleo)
+                <tr>
+                    <td>{{ $empleo->cargo }}</td>
+                    <td>{{ $empleo->descripcion }}</td>
+                    <td>{{ $empleo->renta }}</td>
+                    <td>
+                        <form method="POST" action="{{ route('listado.store', $empleo->id) }}">
+                            @csrf
+                             <button class="form-group btn btn-primary" type="submit">Postular</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>
 @endsection

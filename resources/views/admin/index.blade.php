@@ -4,7 +4,7 @@
 
 @section('content')
     
-  <h2 class="text-5xl text-center pt-24">Welcome to my application Admin</h2>
+  <h2 class="text-5xl text-center pt-24">Bienvenido Admin</h2>
 <div class="container"> 
 
     <form action="{{ route('empleo.store') }}" method="POST">
