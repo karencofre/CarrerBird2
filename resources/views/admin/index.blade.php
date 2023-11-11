@@ -51,7 +51,7 @@
                     <td>{{ $empleo->descripcion }}</td>
                     <td>{{ $empleo->renta }}</td>
                     <td>
-                        <a href="{{ route('empleo.update', $empleo->id) }}">
+                        <a href="{{ route('empleo.updateEmpleo', $empleo->id) }}">
                             <button class="form-group btn btn-primary" type="submit">Editar</button>
                         </a>
                          <a onclick="confirm('¿Está seguro que desea eliminar el empleo?')">

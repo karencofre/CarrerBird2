@@ -32,16 +32,22 @@ class EmpleoController extends Controller
 
         return redirect()->route('admin.index');
     }
-    public function update(Request $request,string $id){
-        $userId = auth()->id();
+    public function updateEmpleo(Request $request,string $id){
+        $empleo = Empleo::find($id);
+
+        if ($empleo) {
+            return view('admin.updateempleo', compact('empleo'));
+        }
+        return redirect()->route('empleo.index');
+    }
+      public function update(Request $request,string $id){
         $empleo = Empleo::find($id);
         $empleo->cargo = $request->cargo;
         $empleo->descripcion = $request->descripcion;
         $empleo->renta = $request->renta;
-        $empleo->requisito = $request->requisito;
-        $empleo->trabajador = $userId;
+ 
         $empleo->save();
-        return redirect()->route('admin.index')->with('success', 'Trabajador actualizado correctamente');
+        return redirect()->route('admin.index')->with('success', 'empleo actualizado correctamente');
     }
     public function show(string $id){
         $empleo = Empleo::find($id);
