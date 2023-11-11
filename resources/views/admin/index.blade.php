@@ -28,7 +28,39 @@
     </form>
 
     <!--listado de empleos-->
-    
+    <div class="container mt-5">
+        <h2 class="text-center">Lista de Empleos</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cargo</th>
+                    <th>Descripción</th>
+                    <th>Renta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              @php
+              use App\Models\Empleo;
+              $empleos = Empleo::all();
+              @endphp
+                @foreach ($empleos as $empleo)
+                <tr>
+                    <td>{{ $empleo->cargo }}</td>
+                    <td>{{ $empleo->descripcion }}</td>
+                    <td>{{ $empleo->renta }}</td>
+                    <td>
+                        <a href="{{ route('empleo.update', ['empleo' => $empleo->id]) }}" class="btn btn-primary">Editar</a>
+<a href="{{ route('empleo.destroy', ['empleo' => $empleo->id]) }}" class="btn btn-danger">Eliminar</a>
+
+                      </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 @endsection

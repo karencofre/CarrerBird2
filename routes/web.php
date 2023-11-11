@@ -43,3 +43,5 @@ Route::resource('formacion', FormacionController::class);
 Route::resource('trabajo', TrabajoController::class);
 Route::resource('habilidad', HabilidadController::class);
 Route::resource('empleo', EmpleoController::class);
+Route::put('/empleo/{empleo}', 'EmpleoController@update')->name('empleo.update')->middleware('auth');
+Route::delete('/empleo/{empleo}', 'EmpleoController@destroy')->name('empleo.destroy')->middleware('auth');

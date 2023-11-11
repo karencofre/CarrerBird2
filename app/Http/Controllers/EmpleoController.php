@@ -30,4 +30,15 @@ class EmpleoController extends Controller
         $empleo->delete();
         return redirect()->route('admin.index')->with('success', 'empleo eliminado correctamente');
     }
+    public function update(Request $request,string $id){
+        $userId = auth()->id();
+        $empleo = Empleo::find($id);
+        $empleo->cargo = $request->cargo;
+        $empleo->descripcion = $request->descripcion;
+        $empleo->renta = $request->renta;
+        $empleo->requisito = $request->requisito;
+        $empleo->trabajador = $userId;
+        $empleo->save();
+        return redirect()->route('admin.index')->with('success', 'Trabajador actualizado correctamente');
+    }
 }
