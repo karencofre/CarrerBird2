@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormacionController; //agregado
 use App\Http\Controllers\TrabajoController; //agregado
 use App\Http\Controllers\HabilidadController; //agregado
+use App\Http\Controllers\EmpleoController; //agregado
 
 Route::get('/', function () {
     return view('home');
@@ -41,3 +42,4 @@ Route::get('/admin', [AdminController::class, 'index'])
 Route::resource('formacion', FormacionController::class);
 Route::resource('trabajo', TrabajoController::class);
 Route::resource('habilidad', HabilidadController::class);
+Route::resource('empleo', EmpleoController::class);

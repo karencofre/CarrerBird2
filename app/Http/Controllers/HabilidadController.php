@@ -21,7 +21,7 @@ class HabilidadController extends Controller
         $habilidad = Habilidad::all();
         return view('home', ['habilidad',$habilidad]);
     }
-     public function destroy(string $id){
+    public function destroy(string $id){
         $habilidad = Habilidad::find($id);
         $habilidad->delete();
         return redirect()->route('home')->with('success', 'Trabajador eliminado correctamente');
