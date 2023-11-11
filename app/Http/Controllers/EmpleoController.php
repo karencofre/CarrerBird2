@@ -26,9 +26,11 @@ class EmpleoController extends Controller
         return view('admin.index', ['empleo',$empleo]);
     }
     public function destroy(string $id){
-        $empleo = empleo::find($id);
-        $empleo->delete();
-        return redirect()->route('admin.index')->with('success', 'empleo eliminado correctamente');
+        
+        Empleo::where('id', $id)->delete();
+        Empleo::destroy($id);
+
+        return redirect()->route('admin.index');
     }
     public function update(Request $request,string $id){
         $userId = auth()->id();
@@ -40,5 +42,9 @@ class EmpleoController extends Controller
         $empleo->trabajador = $userId;
         $empleo->save();
         return redirect()->route('admin.index')->with('success', 'Trabajador actualizado correctamente');
+    }
+    public function show(string $id){
+        $empleo = Empleo::find($id);
+        return view('admin.index', ['empleo',$empleo]);
     }
 }
