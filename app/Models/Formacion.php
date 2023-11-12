@@ -16,4 +16,8 @@ class Formacion extends Model
         'grado_formacion',
     ];
 
+    public function trabajador()
+    {
+        return $this->belongsTo(User::class); 
+    }
 }

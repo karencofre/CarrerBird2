@@ -51,3 +51,11 @@ Route::post('empleo/editar/{id}', [EmpleoController::class,'update'])->name('emp
 
 Route::resource('listado', ListadoController::class);
 Route::post('listado/{id}', [ListadoController::class,'store'])->name('listado.store');
+
+// agregado 3
+
+Route::get('/perfil/{id}', function(){
+    return view("miperfil");
+})
+    ->middleware('auth')
+    ->name('perfil.index');

@@ -85,6 +85,7 @@
                     <th>Trabajador</th>
                     <th>Empleo</th>
                     <th>Puntuación</th>
+                    <th>Perfil</th>
                 </tr>
             </thead>
             <tbody>
@@ -102,6 +103,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $empleo->cargo}} </td>
                         <td>{{ $listado->puntuacion }}</td>
+                        <td><a href="{{ route('perfil.index', ['id' => $user->id]) }}" class="btn btn-primary">Ir al Perfil</a></td>
 
                     </tr>
                 @endforeach
