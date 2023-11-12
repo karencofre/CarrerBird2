@@ -1,11 +1,18 @@
 @extends('layouts.app')
+@php
+    use App\Models\Empleo;
+    use App\Models\Listado;
+@endphp
 
 @section('title', 'Home')
 
 @section('content')
-    
-  <h2 class="text-5xl text-center pt-24">Bienvenido Admin</h2>
-<div class="container"> 
+
+@if(auth()->user()->role == 'role' || auth()->user()->role != null)
+
+
+    <h2 class="text-5xl text-center pt-24">Bienvenido Admin</h2>
+    <div class="container"> 
 
     <form action="{{ route('empleo.store') }}" method="POST">
         @csrf
@@ -42,7 +49,6 @@
             </thead>
             <tbody>
               @php
-              use App\Models\Empleo;
               $empleos = Empleo::all();
               @endphp
                 @foreach ($empleos as $empleo)
@@ -82,7 +88,6 @@
             </thead>
             <tbody>
                 @php
-                    use App\Models\Listado;
                     $listados = Listado::orderByDesc('puntuacion')->get();
                 
                 @endphp
@@ -98,5 +103,8 @@
     </div>
 
 </div>
+@else
+    <p class="text-center">Esta es una vista de administrador</p>
+@endif
 
 @endsection

@@ -3,6 +3,8 @@
 @section('title', 'Home')
 
 @section('content')
+@if(auth()->user()->role == 'role' || auth()->user()->role != null)
+
 <div class="container">
   <form action="{{ route('empleo.update', $empleo->id) }}"method="POST">
         @csrf
@@ -25,4 +27,7 @@
     </form>
 
 </div>
+@else
+    <p class="text-center">Esta es una vista de administrador</p>
+@endif
 @endsection
