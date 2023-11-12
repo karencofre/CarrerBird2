@@ -2,6 +2,7 @@
 @php
     use App\Models\Empleo;
     use App\Models\Listado;
+    use App\Models\User;
 @endphp
 
 @section('title', 'Home')
@@ -89,13 +90,19 @@
             <tbody>
                 @php
                     $listados = Listado::orderByDesc('puntuacion')->get();
-                
+                    
                 @endphp
                 @foreach($listados as $listado)
                     <tr>
-                        <td>{{ $listado->trabajador }}</td>
-                        <td>{{ $listado->empleo}} </td>
+                        @php 
+                        $user = User::find($listado->trabajador);
+                        $empleo = Empleo::find($listado->empleo);
+                        @endphp
+
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $empleo->cargo}} </td>
                         <td>{{ $listado->puntuacion }}</td>
+
                     </tr>
                 @endforeach
             </tbody>
