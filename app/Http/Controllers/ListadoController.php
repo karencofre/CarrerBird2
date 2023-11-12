@@ -6,16 +6,23 @@ use Illuminate\Http\Request;
 
 use App\Models\Listado;
 use App\Models\Empleo;
+use App\Models\Formacion;
+use App\Models\Trabajo;
+use App\Models\Habilidad;
+
 
 class ListadoController extends Controller
 {
     //
 
     public function store(Request $request,$id){
-        
         $userId = auth()->id();
+        $formaciones = Formacion::where('trabajador', $userId)->get();
+        $countFormaciones = $formaciones->count();
+        $trabajos = Trabajo::where('trabajador', $userId)->get();
+        $countTrabajos = $trabajos->count();
         $listado = new Listado();
-        $listado->puntuacion = 100;
+        $listado->puntuacion = $countFormaciones * 20 + $countTrabajos * 10;
         $listado->empleo = $id;
         $listado->trabajador = $userId;
         $listado->save();
@@ -42,12 +49,11 @@ class ListadoController extends Controller
         }
         return redirect()->route('listado.index');
     }
-      public function update(Request $request,string $id){
+    public function update(Request $request,string $id){
         $listado = Listado::find($id);
         $listado->cargo = $request->cargo;
         $listado->descripcion = $request->descripcion;
         $listado->renta = $request->renta;
- 
         $listado->save();
         return redirect()->route('home')->with('success', 'empleo actualizado correctamente');
     }
