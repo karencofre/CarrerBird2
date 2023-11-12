@@ -68,6 +68,34 @@
             </tbody>
         </table>
     </div>
+<!--listado postulaciones-->
+
+    <div class="container mt-5">
+        <h2 class="text-center my-2">Listado de Postulaciones</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Trabajador</th>
+                    <th>Empleo</th>
+                    <th>Puntuación</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                    use App\Models\Listado;
+                    $listados = Listado::orderByDesc('puntuacion')->get();
+                
+                @endphp
+                @foreach($listados as $listado)
+                    <tr>
+                        <td>{{ $listado->trabajador }}</td>
+                        <td>{{ $listado->empleo}} </td>
+                        <td>{{ $listado->puntuacion }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
