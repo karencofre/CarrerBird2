@@ -71,7 +71,7 @@
             </div>
         </div>
     </form>
-
+<a href="{{ route('perfil.update', ['id' => auth()->user()->id]) }}" class="btn btn-primary  col-md-12">Actualizar Perfil</a>
     <h2 class="text-5xl text-center pt-24">Empleos</h2>
 
     <div class="container mt-5">

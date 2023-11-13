@@ -34,6 +34,7 @@
         <br>
         <button type="submit" class="btn btn-primary col-md-12 my-2">Guardar Empleo</button>
     </form>
+<a href="{{ route('perfil.update', ['id' => auth()->user()->id]) }}" class="btn btn-primary  col-md-12">Actualizar Perfil</a>
 
     <!--listado de empleos-->
     <div class="container mt-5">

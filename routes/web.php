@@ -9,10 +9,11 @@ use App\Http\Controllers\TrabajoController; //agregado
 use App\Http\Controllers\HabilidadController; //agregado
 use App\Http\Controllers\EmpleoController; //agregado
 use App\Http\Controllers\ListadoController; //agregado
+use App\Http\Controllers\UserController; //agregado
 
 Route::get('/', function () {
     return view('home');
-})->middleware('auth');
+})->middleware('auth')->name('home');
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -59,3 +60,20 @@ Route::get('/perfil/{id}', function(){
 })
     ->middleware('auth')
     ->name('perfil.index');
+//agregado
+Route::get('/perfil-update/{id}', function(){
+    return view("perfilupdate");
+})
+    ->middleware('auth')
+    ->name('perfil.update');
+
+Route::post('/perfil-update/{id}',[UserController::class,'update'])
+    ->middleware('auth')
+    ->name('user.update');
+Route::get('/curr',function(){
+    return view('curriculums');
+})->name('curr');
+
+Route::resource('formacion', FormacionController::class);
+Route::get('formacion/editar/{id}', [FormacionController::class,'updateFormacion'])->middleware('auth')->name('formacion.updateFormacion');
+Route::post('formacion/editar/{id}', [FormacionController::class,'update'])->middleware('auth')->name('formacion.update');
