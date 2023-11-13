@@ -77,3 +77,8 @@ Route::get('/curr',function(){
 Route::resource('formacion', FormacionController::class);
 Route::get('formacion/editar/{id}', [FormacionController::class,'updateFormacion'])->middleware('auth')->name('formacion.updateFormacion');
 Route::post('formacion/editar/{id}', [FormacionController::class,'update'])->middleware('auth')->name('formacion.update');
+
+//agregado
+Route::get('trabajo/editar/{id}', [TrabajoController::class,'updateTrabajo'])->middleware('auth')->name('trabajo.updateTrabajo');
+Route::post('trabajo/editar/{id}', [TrabajoController::class,'update'])->middleware('auth')->name('trabajo.update');
+

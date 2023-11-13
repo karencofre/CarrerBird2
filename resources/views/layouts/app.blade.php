@@ -64,28 +64,28 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="colaborador1.jpg" class="card-img-top" alt="Colaborador 1">
+                        <img src="{{asset('images/img3.jpg')}}" class="card-img-top" alt="Colaborador 1">
                         <div class="card-body">
-                            <h5 class="card-title">Nombre del Colaborador 1</h5>
-                            <p class="card-text">Descripción o rol del colaborador 1.</p>
+                            <h5 class="card-title">Workana</h5>
+                            <p class="card-text">Contrata en quipos.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="colaborador2.jpg" class="card-img-top" alt="Colaborador 2">
+                        <img src="{{asset('images/img2.jpg')}}" class="card-img-top" alt="Colaborador 2">
                         <div class="card-body">
-                            <h5 class="card-title">Nombre del Colaborador 2</h5>
-                            <p class="card-text">Descripción o rol del colaborador 2.</p>
+                            <h5 class="card-title">Hireline</h5>
+                            <p class="card-text">Contrata en remoto.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="colaborador3.jpg" class="card-img-top" alt="Colaborador 3">
+                        <img src="{{asset('images/img1.jpg')}}" class="card-img-top" alt="Colaborador 3">
                         <div class="card-body">
-                            <h5 class="card-title">Nombre del Colaborador 3</h5>
-                            <p class="card-text">Descripción o rol del colaborador 3.</p>
+                            <h5 class="card-title">Get On Board</h5>
+                            <p class="card-text">Contrata Profesionales.</p>
                         </div>
                     </div>
                 </div>
@@ -115,6 +115,7 @@
                     <nav class="nav justify-content-center">
                         <a class="nav-link text-light" href="#">Inicio</a>
                         <a class="nav-link text-light" href="#">Perfil</a>
+                        <a class="nav-link text-light" href="#">Admin</a>
                     </nav>
                 </div>
             </div>

@@ -40,7 +40,7 @@ class TrabajoController extends Controller
     public function destroy(string $id){
         $trabajador = Trabajo::find($id);
         $trabajador->delete();
-        return redirect()->route('perfil')->with('success', 'Trabajador eliminado correctamente');
+        return redirect()->route('home')->with('success', 'Trabajador eliminado correctamente');
     }
 
     public function create(){
@@ -61,5 +61,23 @@ class TrabajoController extends Controller
         } else {
 
         }
+    }
+
+      public function updateTrabajo(Request $request,string $id){
+        $trabajo = Trabajo::find($id);
+
+        if ($trabajo) {
+            return view('updatetrabajo', compact('trabajo'));
+        }
+        return redirect()->route('trabajo.index');
+    }
+      public function update(Request $request,string $id){
+        $trabajo= Trabajo::find($id);
+        $trabajo->nombre_trabajo = $request->nombre_trabajo;
+        $trabajo->fecha_trabajo = $request->fecha_trabajo;
+        $trabajo->cargo_trabajo = $request->cargo_trabajo;
+ 
+        $trabajo->save();
+        return redirect()->route('trabajo.index')->with('success', 'trabajo actualizado correctamente');
     }
 }

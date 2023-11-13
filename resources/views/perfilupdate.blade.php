@@ -83,7 +83,7 @@
                      <a href="{{ route('formacion.updateFormacion', $formacion->id) }}">
                             <button class="form-group btn btn-primary" type="submit">Editar</button>
                         </a>
-                         <a onclick="confirm('¿Está seguro que desea eliminar el empleo?')">
+                         <a onclick="confirm('¿Está seguro que desea eliminar la formacion?')">
                         <form action="{{ route('formacion.destroy', $formacion->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -108,6 +108,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Cargo</th>
+                <th scope="col">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -120,6 +121,20 @@
                     <td>{{ $trabajo->nombre_trabajo }}</td>
                     <td>{{ $trabajo->fecha_trabajo }}</td>
                     <td>{{ $trabajo->cargo_trabajo }}</td>
+                    <td>
+
+                     <a href="{{ route('trabajo.updateTrabajo', $trabajo->id) }}">
+                            <button class="form-group btn btn-primary" type="submit">Editar</button>
+                        </a>
+                         <a onclick="confirm('¿Está seguro que desea eliminar el trabajo?')">
+                        <form action="{{ route('trabajo.destroy', $trabajo->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="form-group btn btn-danger" type="submit">Eliminar</button>
+                        </form>
+                    </a>
+
+                    </td>
                 </tr>
             @endforeach
         </tbody>
